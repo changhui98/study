@@ -2,9 +2,7 @@ package com.springboot.jpa.service;
 
 import com.springboot.jpa.data.dto.ProductDto;
 import com.springboot.jpa.data.dto.ProductResponseDto;
-import org.springframework.stereotype.Service;
 
-@Service
 public interface ProductService {
 
     ProductResponseDto getProduct(Long number);

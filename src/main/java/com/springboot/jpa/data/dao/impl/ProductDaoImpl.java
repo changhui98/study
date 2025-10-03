@@ -23,7 +23,7 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public Product selectProduct(Long number) {
-        Product selectedProduct = productRepository.getById(number);
+        Product selectedProduct = productRepository.findById(number).orElseThrow();
 
         return selectedProduct;
     }
@@ -37,8 +37,8 @@ public class ProductDaoImpl implements ProductDao {
         if (selectedProduct.isPresent()) {
             Product product = selectedProduct.get();
 
-            product.setName(name);
-            product.setUpdateAt(LocalDateTime.now());
+            product.changeName(name);
+            product.changeUpdateAt(LocalDateTime.now());
 
             updatedProduct = productRepository.save(product);
         } else {
